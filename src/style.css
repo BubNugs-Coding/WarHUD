@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 9.5px;
+  line-height: 1.22;
+  background: #0a0a0a;
+  color: #f7f7f7;
+}
+
+#app {
+  height: 100%;
+  margin: 0;
+  padding: 6px 8px;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+}

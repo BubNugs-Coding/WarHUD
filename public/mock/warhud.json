@@ -1,0 +1,27 @@
+{
+  "majorOrder": {
+    "title": "Defend key sectors",
+    "progress": "2/5",
+    "expiresIn": 7200
+  },
+  "planets": [
+    {
+      "name": "Estanu",
+      "percent": 62,
+      "trend": "up",
+      "label": ""
+    },
+    {
+      "name": "Heeth",
+      "percent": 74,
+      "trend": "up",
+      "label": "DEF"
+    },
+    {
+      "name": "Veld",
+      "percent": 18,
+      "trend": "down",
+      "label": ""
+    }
+  ]
+}

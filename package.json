@@ -1,0 +1,31 @@
+{
+  "name": "warhud",
+  "version": "0.1.0",
+  "description": "Minimal Even Hub WarHUD app for Helldivers 2 war status",
+  "scripts": {
+    "dev": "vite",
+    "dev:all": "concurrently -n server,vite -c blue,green \"npm run dev:server\" \"npm run dev\"",
+    "evenhub:sim": "node node_modules/@evenrealities/evenhub-simulator/bin/index.js http://localhost:5173",
+    "dev:server": "node server/index.js",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start:server": "node server/index.js"
+  },
+  "keywords": [
+    "evenhub",
+    "helldivers2",
+    "warhud"
+  ],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@evenrealities/even_hub_sdk": "^0.0.9",
+    "express": "^5.2.1",
+    "vite": "^8.0.3"
+  },
+  "devDependencies": {
+    "@evenrealities/evenhub-simulator": "^0.6.2",
+    "concurrently": "^9.2.1"
+  }
+}
