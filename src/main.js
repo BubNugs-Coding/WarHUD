@@ -460,6 +460,7 @@ async function safeFetchJson(url) {
   }
 }
 
+// Pull normalized sections from the local WarHUD backend and merge into UI state.
 async function refreshFromApi() {
   const now = Date.now();
   state.freshness.app = now;
@@ -541,6 +542,7 @@ async function refreshFromApi() {
   state.warHudApiOk = overviewRes.ok;
 }
 
+// Keep one text container alive on glasses; update content in-place on each render tick.
 async function renderOnGlasses(bridge, content) {
   if (!state.glassesReady) {
     warHudLog("info", "glasses: creating startup container", {
@@ -615,6 +617,7 @@ async function detectRuntimeMode() {
   }
 }
 
+// DOM and glasses have separate render caches so one surface can update without forcing the other.
 async function syncRender() {
   const browserText = currentScreenText();
   app.textContent = browserText;
@@ -781,6 +784,7 @@ function collectEvenHubTokens(event) {
   return tokens.map(normalizeEventToken).filter(Boolean);
 }
 
+// Normalize host event variants into the app's central navigation actions.
 async function handleEvenHubInputEvent(event) {
   const tokens = collectEvenHubTokens(event);
   if (tokens.length === 0) {

@@ -22,6 +22,7 @@ const OWNER_LABEL = {
 
 const app = express();
 
+// In-memory cache keeps last good payloads so API callers still get usable data during upstream outages.
 const cache = {
   inFlight: null,
   cachedAt: null,
@@ -253,6 +254,7 @@ async function fetchDispatchFeed() {
   throw new Error("No dispatch endpoint available");
 }
 
+// Refresh all upstream sources, then update cached sections independently (partial failures are tolerated).
 async function refreshCache() {
   const now = Date.now();
   const [statusResult, ordersResult, planetsResult] = await Promise.allSettled([
@@ -338,6 +340,7 @@ async function refreshCache() {
   cache.cachedAt = now;
 }
 
+// Collapse concurrent requests onto one refresh and enforce TTL between refresh cycles.
 async function ensureFreshCache() {
   if (cache.cachedAt && Date.now() - cache.cachedAt < CACHE_TTL_MS) {
     return;
